@@ -6,6 +6,9 @@ import { Container } from '@mui/material'
 import Display from './components/Display'
 import { getCityWeather, getLocalWeather } from './utils/func'
 import Wait from './components/Wait'
+import About from './components/About'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Main from './components/Main'
 
 const KEY = '4744245dfa7abc19a9387260236687f2'
 
@@ -40,22 +43,38 @@ function App() {
   }, [city])
 
   return (
-    <div className="App">
-      <Header />
-      <Container sx={{
-        mt: 1.5,
-        width: '80%'
-      }}>
-        <SearchForm setCity={setCity} 
-        setLocalWeather={setLocalWeather}
-        localWeather={localWeather} />
-        {
-          !isLoaded ?  <Wait /> : <Display data={data} 
-          titleSpinner={titleSpinner} 
-          searchError={searchError}/>
-        }
-      </Container>
-    </div>
+    <Router>
+      <div className="App">
+          <Header />
+          <Container sx={{
+            mt: 1.5,
+            width: '80%'
+          }}>
+
+
+            {/* <SearchForm setCity={setCity} 
+            setLocalWeather={setLocalWeather}
+            localWeather={localWeather} />
+            {
+              !isLoaded ?  <Wait /> : <Display data={data} 
+              titleSpinner={titleSpinner} 
+              searchError={searchError}/>
+            } */}
+
+            <Switch>
+              <Route path="/" exact render={()=><Main setCity={setCity}
+              setLocalWeather={setLocalWeather}
+              localWeather={localWeather}
+              data={data}
+              titleSpinner={titleSpinner}
+              searchError={searchError}
+              isLoaded={isLoaded} />}/>
+              <Route path="/about" component={About}/>
+            </Switch>
+
+          </Container>
+      </div>
+    </Router>
   );
 }
 

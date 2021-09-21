@@ -1,4 +1,5 @@
-import { Container, AppBar, Toolbar, Button, Typography } from '@mui/material';
+import { Container, AppBar, Toolbar, Grid, Typography } from '@mui/material';
+import Navigation from './Navigation'
 
 
 
@@ -7,9 +8,19 @@ const Header = () => {
         <AppBar position="static">
             <Container>
                 <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 1 }}>
-                        The Weather
-                    </Typography>
+                    <Grid container
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between">
+                        <Grid item>
+                            <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
+                                The Weather
+                            </Typography>  
+                        </Grid>
+                        <Grid item>
+                            <Navigation />
+                        </Grid>
+                    </Grid>
                 </Toolbar>
             </Container>
         </AppBar>
