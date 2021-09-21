@@ -13,12 +13,12 @@ const theme = createTheme({
   //   secondary: {
   //     main: blue[200]
   //   }
-  },
-  typography: {
-    poster: {
-      color: 'green',
-    }
-  }
+  // },
+  // typography: {
+  //   poster: {
+  //     color: 'green',
+  //   }
+  // }
 })
 
 ReactDOM.render(
