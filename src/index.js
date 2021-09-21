@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
-import blue from '@material-ui/core/colors/blue';
+// import blue from '@material-ui/core/colors/blue';
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: blue[500]
-    },
-    secondary: {
-      main: blue[200]
-    }
+  // palette: {
+  //   primary: {
+  //     main: blue[500]
+  //   },
+  //   secondary: {
+  //     main: blue[200]
+  //   }
   },
   typography: {
     poster: {
