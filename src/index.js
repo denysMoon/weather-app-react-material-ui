@@ -3,16 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
-import indigo from '@material-ui/core/colors/indigo';
 import blue from '@material-ui/core/colors/blue';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: indigo[500]
+      main: blue[500]
     },
     secondary: {
-      main: blue[500]
+      main: blue[200]
     }
   },
   typography: {
