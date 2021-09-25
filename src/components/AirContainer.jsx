@@ -22,13 +22,7 @@ const AirContainer = ( { airPollution } ) =>{
                 </AlertTitle>
             </Alert>)
         } else {
-            return (<Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="error">
-                <AlertTitle>
-                    There is no data about air pollution
-                </AlertTitle>
-            </Alert>
-        </Stack>);           
+            return <AirPollutionDisplay airPollution={airPollution} />;           
         }
     }
 
