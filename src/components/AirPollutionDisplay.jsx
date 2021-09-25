@@ -6,9 +6,13 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 
+// Indexes color
+import { green } from '@mui/material/colors';
+
+
 const AirPollutionDisplay = ({ airPollution }) =>{
     return(
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{mt:1.5}}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                 <TableHead>
                     <TableRow>
@@ -34,15 +38,15 @@ const AirPollutionDisplay = ({ airPollution }) =>{
                             NO (Nitrogen monoxide)
                         </TableCell>
                         <TableCell>
-                            2
+                            {airPollution.list[0].components.no} μg/m3
                         </TableCell>
-                    </TableRow>
-                    <TableRow>
+                    </TableRow> 
+                    <TableRow>      
                         <TableCell>
                             NO2 (Nitrogen dioxide)
                         </TableCell>
                         <TableCell>
-                            2
+                            {airPollution.list[0].components.no2} μg/m3
                         </TableCell>
                     </TableRow>
                     <TableRow>
@@ -50,7 +54,7 @@ const AirPollutionDisplay = ({ airPollution }) =>{
                             O3 (Ozone)
                         </TableCell>
                         <TableCell>
-                            2
+                            {airPollution.list[0].components.o3} μg/m3
                         </TableCell>
                     </TableRow>
                     <TableRow>
@@ -58,7 +62,7 @@ const AirPollutionDisplay = ({ airPollution }) =>{
                             SO2 (Sulphur dioxide)
                         </TableCell>
                         <TableCell>
-                            2
+                            {airPollution.list[0].components.so2} μg/m3
                         </TableCell>
                     </TableRow>
                     <TableRow>
@@ -66,7 +70,7 @@ const AirPollutionDisplay = ({ airPollution }) =>{
                             PM2.5 (Fine particles matter)
                         </TableCell>
                         <TableCell>
-                            2
+                            {airPollution.list[0].components.pm2_5} μg/m3
                         </TableCell>
                     </TableRow>
                     <TableRow>
@@ -74,7 +78,7 @@ const AirPollutionDisplay = ({ airPollution }) =>{
                             PM10 (Coarse particulate matter)
                         </TableCell>
                         <TableCell>
-                            2
+                            {airPollution.list[0].components.pm10} μg/m3
                         </TableCell>
                     </TableRow>
                     <TableRow>
@@ -82,7 +86,15 @@ const AirPollutionDisplay = ({ airPollution }) =>{
                             NH3 (Ammonia)
                         </TableCell>
                         <TableCell>
-                            2
+                            {airPollution.list[0].components.nh3} μg/m3
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            Air Quality index level
+                        </TableCell>
+                        <TableCell>
+                            {airPollution.list[0].main.aqi}
                         </TableCell>
                     </TableRow>
                 </TableBody>

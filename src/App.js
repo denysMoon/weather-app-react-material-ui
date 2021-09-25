@@ -43,7 +43,7 @@ function App() {
 
   useEffect(()=>{
     getAirPollution(KEY, coords, setTitleSpinner, setAirPollution)
-  }, [localWeather])
+  }, [coords])
 
   return (
     <Router>
