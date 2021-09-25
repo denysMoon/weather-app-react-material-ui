@@ -40,7 +40,7 @@ export const getLocalWeather = async (KEY, coords, setData, setTitleSpinner, set
 export const getAirPollution = async (KEY, coords, setTitleSpinner, setAirPollution) =>{
   setTitleSpinner(true)
   setTimeout(()=>{
-    fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${coords.lat}&lon=${coords.long}&appid=${KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${coords.lat}&lon=${coords.long}&appid=${KEY}`)
     .then(res=>res.json())
     .then(res=>{
       setAirPollution(res)
