@@ -1,0 +1,1 @@
+export const linkWiki = 'https://en.wikipedia.org/wiki/Air_quality_index#CAQI'

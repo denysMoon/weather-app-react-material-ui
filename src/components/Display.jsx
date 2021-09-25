@@ -3,7 +3,16 @@ import CardItem from './CardItem'
 import TitleSpinner from './TitleSpinner'
 import Title from './Title'
 
-const Display = ({ data, titleSpinner, searchError }) => {
+const Display = ({ data, titleSpinner, searchError }) =>{
+
+    const renderIfElse = (param) =>{
+        if(param.cod === '400'){
+            return
+        } else {
+            return <CardItem data={data}/>
+        }
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             {
@@ -16,7 +25,7 @@ const Display = ({ data, titleSpinner, searchError }) => {
                         <Title data={data} searchError={searchError} />
                     )
                 }
-            <CardItem data={data}/>
+            {renderIfElse(data)}
         </Box>
     )
 }

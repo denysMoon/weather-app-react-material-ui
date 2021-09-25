@@ -1,5 +1,5 @@
-import { Container, Grid, Link } from '@mui/material'
-import { Link as Navi } from 'react-router-dom'
+import { Container, Grid, Link } from '@mui/material';
+import { Link as Navi } from 'react-router-dom';
 
 const Navigation = () => {
     return (

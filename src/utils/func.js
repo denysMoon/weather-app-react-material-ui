@@ -26,7 +26,7 @@ export const getCityWeather = async (city, KEY, setData, setIsLoaded, setTitleSp
 export const getLocalWeather = async (KEY, coords, setData, setTitleSpinner, setSearchError) => {
   setTitleSpinner(true)
   setSearchError(false)
-  setTimeout(()=>{
+  // setTimeout(()=>{
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.long}&appid=${KEY}&units=metric`)
     .then(res => res.json())
     .then(res => {
@@ -34,7 +34,7 @@ export const getLocalWeather = async (KEY, coords, setData, setTitleSpinner, set
       setTitleSpinner(false)
     })
     .catch(err => console.log(err))
-  }, 500)
+  // }, 500)
 }
 
 export const getAirPollution = async (KEY, coords, setTitleSpinner, setAirPollution) =>{

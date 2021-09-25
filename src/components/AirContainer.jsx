@@ -5,7 +5,7 @@ import AlertTitle from '@mui/material/AlertTitle';
 import AirPollutionDisplay from './AirPollutionDisplay';
 
 const AirContainer = ( { airPollution } ) =>{
-
+    console.log(airPollution.length)
     const renderSwitch = (param) =>{
         if(!param){
             return (<Stack sx={{ width: '100%' }} spacing={2}>
@@ -21,19 +21,25 @@ const AirContainer = ( { airPollution } ) =>{
                     Turn on location on your device
                 </AlertTitle>
             </Alert>)
-        } else {
-            return <AirPollutionDisplay airPollution={airPollution} />;           
+        } else if (!airPollution.length){
+            return (<Stack sx={{ width: '100%' }} spacing={2}>
+            <Alert severity="error">
+                <AlertTitle>
+                    Something get wrong 
+                </AlertTitle>
+            </Alert>
+        </Stack>)
+        } else { return <AirPollutionDisplay airPollution={airPollution} />;           
         }
     }
 
-    console.log(airPollution)
     return(
         <>
             <Typography variant="h4">
                 Air Pollution
             </Typography>
             {
-                renderSwitch(airPollution)
+                renderSwitch(airPollution) 
             }
         </>
     )
