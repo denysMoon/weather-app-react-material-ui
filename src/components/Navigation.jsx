@@ -36,6 +36,16 @@ const Navigation = () => {
                         </Link>
                     </Navi>
                 </Grid>
+                <Grid item>
+                    <Navi to="/feedback">
+                       <Link underline="none"
+                        component="button"
+                        color="white"
+                        sx={{fontSize: '18px'}}>
+                            Feedback
+                        </Link> 
+                    </Navi>
+                </Grid>
             </Grid>
         </Container>
     )

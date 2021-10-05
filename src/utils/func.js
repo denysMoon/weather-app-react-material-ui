@@ -1,3 +1,5 @@
+import { linkServer } from './consts'
+
 export const getCityWeather = async (city, KEY, setData, setIsLoaded, setTitleSpinner, setSearchError) => {
   setTitleSpinner(true)
   setSearchError(false)
@@ -48,4 +50,18 @@ export const getAirPollution = async (KEY, coords, setTitleSpinner, setAirPollut
     })
     .catch(err => console.log(err))
   }, 500)
+}
+
+export const getReviews = (setReviews, setTitleSpinner) =>{
+  setTitleSpinner(true)
+  setTimeout(()=>{
+    fetch(`${linkServer}/reviews`)
+    .then(res=>res.json())
+    .then(res=>{
+      setReviews(res)
+      setTitleSpinner(false)
+    })
+    .catch(err=>console.log(err))  
+  }, 500)
+
 }

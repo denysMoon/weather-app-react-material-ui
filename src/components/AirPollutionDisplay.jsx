@@ -7,10 +7,22 @@ import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import { linkWiki } from '../utils/consts'
+import { linkWiki } from '../utils/consts';
+import { styled } from '@mui/material/styles';
 
-// Indexes color
-import { green } from '@mui/material/colors';
+
+const TableRowStyled = styled(TableRow)(({ theme }) => ({
+    background: theme.palette.primary.main
+  }));
+
+const TableRowMainStyled = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+      '&:last-child td, &:last-child th': {
+        border: 0,
+      },
+}));
 
 
 const AirPollutionDisplay = ({ airPollution }) =>{
@@ -19,88 +31,92 @@ const AirPollutionDisplay = ({ airPollution }) =>{
             <TableContainer component={Paper} sx={{mt:1.5}}>
                 <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                     <TableHead>
-                        <TableRow>
+                        <TableRowStyled>
                             <TableCell>
-                                Component
+                                <Typography>
+                                    Component
+                                </Typography>
                             </TableCell>
                             <TableCell>
-                                Сoncentration
+                                <Typography>
+                                    Сoncentration
+                                </Typography>
                             </TableCell>
-                        </TableRow>
+                        </TableRowStyled>
                     </TableHead>
                     <TableBody>
-                        <TableRow>
+                        <TableRowMainStyled>
                             <TableCell>
-                                CO (Carbon monoxide)
+                                Carbon monoxide CO 
                             </TableCell>
                             <TableCell>
-                                {airPollution.list[0].components.co} μg/m3
+                                {airPollution.list[0].components.co} μg/m<sup>3</sup>
                             </TableCell>
-                        </TableRow>
-                        <TableRow>
+                        </TableRowMainStyled>
+                        <TableRowMainStyled>
                             <TableCell>
-                                NO (Nitrogen monoxide)
-                            </TableCell>
-                            <TableCell>
-                                {airPollution.list[0].components.no} μg/m3
-                            </TableCell>
-                        </TableRow> 
-                        <TableRow>      
-                            <TableCell>
-                                NO2 (Nitrogen dioxide)
+                                Nitrogen monoxide NO
                             </TableCell>
                             <TableCell>
-                                {airPollution.list[0].components.no2} μg/m3
+                                {airPollution.list[0].components.no} μg/m<sup>3</sup>
                             </TableCell>
-                        </TableRow>
-                        <TableRow>
+                        </TableRowMainStyled> 
+                        <TableRowMainStyled>      
                             <TableCell>
-                                O3 (Ozone)
-                            </TableCell>
-                            <TableCell>
-                                {airPollution.list[0].components.o3} μg/m3
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>
-                                SO2 (Sulphur dioxide)
+                                Nitrogen dioxide NO<sub>2</sub>
                             </TableCell>
                             <TableCell>
-                                {airPollution.list[0].components.so2} μg/m3
+                                {airPollution.list[0].components.no2} μg/m<sup>3</sup>
                             </TableCell>
-                        </TableRow>
-                        <TableRow>
+                        </TableRowMainStyled>
+                        <TableRowMainStyled>
                             <TableCell>
-                                PM2.5 (Fine particles matter)
-                            </TableCell>
-                            <TableCell>
-                                {airPollution.list[0].components.pm2_5} μg/m3
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>
-                                PM10 (Coarse particulate matter)
+                                Ozone O<sub>3</sub>
                             </TableCell>
                             <TableCell>
-                                {airPollution.list[0].components.pm10} μg/m3
+                                {airPollution.list[0].components.o3} μg/m<sup>3</sup>
                             </TableCell>
-                        </TableRow>
-                        <TableRow>
+                        </TableRowMainStyled>
+                        <TableRowMainStyled>
                             <TableCell>
-                                NH3 (Ammonia)
+                                Sulphur dioxide SO<sub>2</sub>
                             </TableCell>
                             <TableCell>
-                                {airPollution.list[0].components.nh3} μg/m3
+                                {airPollution.list[0].components.so2} μg/m<sup>3</sup>
                             </TableCell>
-                        </TableRow>
-                        <TableRow>
+                        </TableRowMainStyled>
+                        <TableRowMainStyled>
+                            <TableCell>
+                                Fine particles matter PM<sub>1.5</sub>
+                            </TableCell>
+                            <TableCell>
+                                {airPollution.list[0].components.pm2_5} μg/m<sup>3</sup>
+                            </TableCell>
+                        </TableRowMainStyled>
+                        <TableRowMainStyled>
+                            <TableCell>
+                                Coarse particulate matter PM<sub>10</sub>
+                            </TableCell>
+                            <TableCell>
+                                {airPollution.list[0].components.pm10} μg/m<sup>3</sup>
+                            </TableCell>
+                        </TableRowMainStyled>
+                        <TableRowMainStyled>
+                            <TableCell>
+                                Ammonia NH<sub>2</sub>
+                            </TableCell>
+                            <TableCell>
+                                {airPollution.list[0].components.nh3} μg/m<sup>3</sup>
+                            </TableCell>
+                        </TableRowMainStyled>
+                        <TableRowMainStyled>
                             <TableCell>
                                 Air Quality index level
                             </TableCell>
                             <TableCell>
                                 {airPollution.list[0].main.aqi}
                             </TableCell>
-                        </TableRow>
+                        </TableRowMainStyled>
                     </TableBody>
                 </Table>
             </TableContainer>

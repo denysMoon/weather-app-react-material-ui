@@ -1,16 +1,13 @@
-import { Typography, Alert, AlertTitle  } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import AlertMessage from './AlertMessage'
 
 const Title = ({ data, searchError }) => {
 
     const renderIfElse = (param) =>{
         if(param.cod === '400'){
             return (
-                <Alert severity="error" sx={{ mt: 1.5 }}>
-                    <AlertTitle>
-                        Error
-                    </AlertTitle>
-                </Alert>
+                <AlertMessage errorMessage="Nothing to show"/>
             )
         } else {
             return (
@@ -28,11 +25,7 @@ const Title = ({ data, searchError }) => {
         <>
             {
                 searchError ? (
-                    <Alert severity="error" sx={{ mt: 1.5 }}>
-                        <AlertTitle>
-                            Error
-                        </AlertTitle>
-                    </Alert>
+                    <AlertMessage errorMessage="Wrong city"/>
                 )
                 :
                 (

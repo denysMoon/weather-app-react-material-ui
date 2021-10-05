@@ -2,11 +2,12 @@ import './App.css';
 import { useEffect, useState } from 'react'
 import Header from './components/Header';
 import { Container } from '@mui/material';
-import { getCityWeather, getLocalWeather, getAirPollution } from './utils/func';
+import { getCityWeather, getLocalWeather, getAirPollution, getReviews } from './utils/func';
 import About from './components/About';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Main from './components/Main';
 import AirContainer from './components/AirContainer';
+import Feedback from './components/Feedback'
 
 const KEY = '4744245dfa7abc19a9387260236687f2'
 
@@ -22,6 +23,8 @@ function App() {
   const [titleSpinner, setTitleSpinner] = useState(false)
   const [searchError, setSearchError] = useState(null)
   const [airPollution, setAirPollution] = useState([])
+  const [reviews, setReviews] = useState([])
+  const [newReview, setNewReview] = useState(false)
 
 
   useEffect(()=>{
@@ -31,6 +34,14 @@ function App() {
         long: pos.coords.longitude
       })
     })
+  }, [newReview])
+
+  useEffect(()=>{
+    getReviews(setReviews, setTitleSpinner)
+  }, [newReview])
+
+  useEffect(()=>{
+    getReviews(setReviews, setTitleSpinner)
   }, [])
 
   useEffect(()=>{
@@ -63,7 +74,11 @@ function App() {
               searchError={searchError}
               isLoaded={isLoaded} />}/>
             <Route path="/air" render={()=><AirContainer airPollution={airPollution} />} />
-            <Route path="/about" component={About}/>
+            <Route path="/feedback" render={()=><Feedback reviews={reviews}
+              setNewReview={setNewReview}
+              newReview={newReview}
+              titleSpinner={titleSpinner} />} />
+            <Route path="/about" render={()=><About />} />
           </Switch>
 
           </Container>
