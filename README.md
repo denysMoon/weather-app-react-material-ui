@@ -1,6 +1,6 @@
 # Weather app
 
-## [Netlify](https://romantic-joliot-7379bc.netlify.app)
+## [Netlify](https://fervent-archimedes-bebc05.netlify.app/)
 
 ## Server part [here](https://github.com/denysMoon/weather-server)
 
